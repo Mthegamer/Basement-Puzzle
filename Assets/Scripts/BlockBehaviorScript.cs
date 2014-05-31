@@ -18,4 +18,13 @@ public class BlockBehaviorScript : MonoBehaviour {
 	public void changePosition(Vector3 to) {
 		newPosition = to;
 	}
+
+	void OnCollisionStay(Collision col) {
+		Debug.Log(col.gameObject.name);
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			Debug.Log("'P' has been pressed");
+			changePosition(new Vector3(transform.position.x, 0.0f, newPosition.z + 4f));
+		}
+	}
 }
