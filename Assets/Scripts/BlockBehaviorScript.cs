@@ -12,19 +12,50 @@ public class BlockBehaviorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime);
+		transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 2f);
 	}
 
-	public void changePosition(Vector3 to) {
+	/**
+	 * Set the new position of the cube
+	 */
+	public void ChangePosition(Vector3 to) {
 		newPosition = to;
 	}
 
-	void OnCollisionStay(Collision col) {
-		Debug.Log(col.gameObject.name);
-		if (Input.GetKeyDown(KeyCode.P))
+	void OnTriggerStay(Collider col) {
+		Debug.Log("Trigger Event fired");
+
+		Vector3 direction = transform.position - col.gameObject.transform.position;
+		
+		direction.y = 0f;
+		
+		if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
 		{
-			Debug.Log("'P' has been pressed");
-			changePosition(new Vector3(transform.position.x, 0.0f, newPosition.z + 4f));
+			direction.z = 0f;
+		}
+		else
+		{
+			direction.x = 0f;
+		}
+		
+		direction.Normalize();
+
+		bool canSlide = true;
+		RaycastHit rayHit;
+		Ray ray = new Ray(transform.position, direction);
+		Debug.DrawRay(transform.position, direction * 4.5f);
+
+		if (Physics.Raycast(ray, out rayHit, 4.5f))
+		{
+			if (rayHit.collider.tag == "Block")
+			{
+				canSlide = false;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.P) && canSlide)
+		{
+			ChangePosition(transform.position + direction * 3f);
 		}
 	}
 }
