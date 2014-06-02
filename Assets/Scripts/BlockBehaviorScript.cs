@@ -15,7 +15,6 @@ public class BlockBehaviorScript : MonoBehaviour {
 	public float pushDelay = 3f;   //The delay to wait before you can push again
 	public float speed = 2f;   //Speed of the slide
 
-	private const KeyCode PUSH_KEY = KeyCode.P;   //The key, which is used to push the blocks
 	private Vector3 newPosition;   //The new position, where the Block will slide to.
 	private bool moving = false;   //Is the block moving
 	private float pushTime = 0;   //Time counter for the moving delay
@@ -74,7 +73,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 		direction.Normalize();
 
 		//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
-		if (Input.GetKeyDown(PUSH_KEY) && CanSlide(direction) && !moving)
+		if (Input.GetAxis("Push") > 0 && CanSlide(direction) && !moving)
 		{
 			moving = true;
 			ChangePosition(transform.position + direction * 3f);
