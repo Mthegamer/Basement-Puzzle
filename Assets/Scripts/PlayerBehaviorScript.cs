@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * This script is controlling the player behavior, like the movement of a player.
+ * 
+ * @author Martin Rohwedder
+ * @version 1.0
+ */
 public class PlayerBehaviorScript : MonoBehaviour
 {
-	public float moveSpeed;
-	public float turnSpeed;
+	public float moveSpeed;   //The speed which the player moves with
+	public float turnSpeed;   //The speed which the player turns with
 
 	void FixedUpdate() {
 		float h = Input.GetAxis("Horizontal");
@@ -24,6 +30,9 @@ public class PlayerBehaviorScript : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Rotates the player
+	 */
 	void RotatePlayer(float horizontal, float vertical) {
 		Vector3 targetDirection = new Vector3(horizontal, 0.0f, vertical);
 		Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);

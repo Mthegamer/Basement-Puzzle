@@ -12,10 +12,13 @@ using System.Collections;
  */
 public class BlockBehaviorScript : MonoBehaviour {
 
+	public float pushDelay = 3f;   //The delay to wait before you can push again
 	public float speed = 2f;   //Speed of the slide
 
-	private const KeyCode PUSH_KEY = KeyCode.P;
+	private const KeyCode PUSH_KEY = KeyCode.P;   //The key, which is used to push the blocks
 	private Vector3 newPosition;   //The new position, where the Block will slide to.
+	private bool moving = false;   //Is the block moving
+	private float pushTime = 0;   //Time counter for the moving delay
 
 	// Use this for initialization
 	void Start ()
@@ -27,6 +30,18 @@ public class BlockBehaviorScript : MonoBehaviour {
 	void Update ()
 	{
 		transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * speed);
+
+		//If the block is moving, start the push delay counting.
+		if (moving)
+		{
+			pushTime += Time.deltaTime;
+
+			if (pushTime > pushDelay)
+			{
+				pushTime = 0;
+				moving = false;
+			}
+		}
 	}
 
 	/**
@@ -58,15 +73,16 @@ public class BlockBehaviorScript : MonoBehaviour {
 		
 		direction.Normalize();
 
-		//Push the Block in the calculated direction, if player presses the Push key and the block can slide
-		if (Input.GetKeyDown(PUSH_KEY) && CanSlide(direction))
+		//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
+		if (Input.GetKeyDown(PUSH_KEY) && CanSlide(direction) && !moving)
 		{
+			moving = true;
 			ChangePosition(transform.position + direction * 3f);
 		}
 	}
 
 	/**
-	 * False is returned, if the block will hit another block or a solid property (walls and such)
+	 * False is returned, if the block will hit another block or a solid property (walls and such).
 	 */
 	bool CanSlide(Vector3 direction)
 	{
@@ -75,7 +91,6 @@ public class BlockBehaviorScript : MonoBehaviour {
 
 		RaycastHit rayHit;
 		Ray ray = new Ray(transform.position, direction);
-		Debug.DrawRay(transform.position, direction * length);
 		
 		if (Physics.Raycast(ray, out rayHit, length))
 		{
