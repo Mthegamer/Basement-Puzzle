@@ -76,7 +76,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 		if (Input.GetAxis("Push") > 0 && CanSlide(direction) && !moving)
 		{
 			moving = true;
-			ChangePosition(transform.position + direction * 3f);
+			ChangePosition(transform.position + direction * 1f);
 		}
 	}
 
