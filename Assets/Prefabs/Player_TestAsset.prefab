@@ -700,6 +700,7 @@ GameObject:
   - 4: {fileID: 400092}
   - 111: {fileID: 11100000}
   - 136: {fileID: 13600000}
+  - 136: {fileID: 13600002}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
@@ -2501,7 +2502,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!111 &11100000
 Animation:
@@ -2539,10 +2540,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .300000012
-  m_Height: .800000012
+  m_Radius: .200000003
+  m_Height: .699999988
   m_Direction: 2
   m_Center: {x: 0, y: .699999988, z: 0}
+--- !u!136 &13600002
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .00999999978
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
