@@ -56,27 +56,30 @@ public class BlockBehaviorScript : MonoBehaviour {
 	 */
 	void OnTriggerStay(Collider col)
 	{
-		//Calculate the direction to push the Block
-		Vector3 direction = transform.position - col.gameObject.transform.position;
-		
-		direction.y = 0f;
-		
-		if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
+		if (col.gameObject.tag == "Player")
 		{
-			direction.z = 0f;
-		}
-		else
-		{
-			direction.x = 0f;
-		}
-		
-		direction.Normalize();
+			//Calculate the direction to push the Block
+			Vector3 direction = transform.position - col.gameObject.transform.position;
+			
+			direction.y = 0f;
+			
+			if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
+			{
+				direction.z = 0f;
+			}
+			else
+			{
+				direction.x = 0f;
+			}
+			
+			direction.Normalize();
 
-		//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
-		if (Input.GetAxis("Push") > 0 && CanSlide(direction) && !moving)
-		{
-			moving = true;
-			ChangePosition(transform.position + direction * 1f);
+			//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
+			if (Input.GetKeyUp(KeyCode.F) && CanSlide(direction) && !moving)
+			{
+				moving = true;
+				ChangePosition(transform.position + direction * 1f);
+			}
 		}
 	}
 
