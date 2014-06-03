@@ -75,7 +75,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 			direction.Normalize();
 
 			//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
-			if (Input.GetKeyUp(KeyCode.F) && CanSlide(direction) && !moving)
+			if (Input.GetAxis("Push") > 0 && CanSlide(direction) && !moving)
 			{
 				moving = true;
 				ChangePosition(transform.position + direction * 1f);
