@@ -89,10 +89,11 @@ public class BlockBehaviorScript : MonoBehaviour {
 	bool CanSlide(Vector3 direction)
 	{
 		bool canSlide = true;
-		float length = 4f;
+		float length = 1f;
 
 		RaycastHit rayHit;
 		Ray ray = new Ray(transform.position, direction);
+		Debug.DrawRay(transform.position, direction);
 		
 		if (Physics.Raycast(ray, out rayHit, length))
 		{
