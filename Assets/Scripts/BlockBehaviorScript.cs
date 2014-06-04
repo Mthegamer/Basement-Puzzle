@@ -18,6 +18,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 	private Vector3 newPosition;   //The new position, where the Block will slide to.
 	private bool moving = false;   //Is the block moving
 	private float pushTime = 0;   //Time counter for the moving delay
+	private int numberOfSlides = 0;   //A count of the total number of slides done on this block
 
 	// Use this for initialization
 	void Start ()
@@ -79,6 +80,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 			{
 				moving = true;
 				ChangePosition(transform.position + direction * 1f);
+				numberOfSlides++;
 			}
 		}
 	}
@@ -104,5 +106,10 @@ public class BlockBehaviorScript : MonoBehaviour {
 		}
 
 		return canSlide;
+	}
+
+	public int GetNumberOfSlides()
+	{
+		return numberOfSlides;
 	}
 }
