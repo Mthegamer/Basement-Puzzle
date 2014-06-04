@@ -12,8 +12,8 @@ using System.Collections;
  */
 public class BlockBehaviorScript : MonoBehaviour {
 
-	public float pushDelay = 3f;   //The delay to wait before you can push again
-	public float speed = 2f;   //Speed of the slide
+	public float pushDelay = 1f;   //The delay to wait before you can push again
+	public float speed = 3.5f;   //Speed of the slide
 
 	private Vector3 newPosition;   //The new position, where the Block will slide to.
 	private bool moving = false;   //Is the block moving

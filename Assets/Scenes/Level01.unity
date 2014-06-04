@@ -230,6 +230,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: pushDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
   m_RootGameObject: {fileID: 1612956659}
@@ -361,6 +369,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: pushDelay
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1822,8 +1838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19501fe912d4197498f78e1cceebcbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDelay: 3
-  speed: 2
+  pushDelay: 1
+  speed: 3.5
 --- !u!23 &604148113
 Renderer:
   m_ObjectHideFlags: 0
@@ -2949,6 +2965,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
+      propertyPath: pushDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fca6f5bd292270e438d72d098fa5bea5, type: 2}
   m_RootGameObject: {fileID: 604148109}
@@ -3101,8 +3125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19501fe912d4197498f78e1cceebcbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDelay: 3
-  speed: 2
+  pushDelay: 1
+  speed: 3.5
 --- !u!23 &1062500047
 Renderer:
   m_ObjectHideFlags: 0
@@ -4532,8 +4556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19501fe912d4197498f78e1cceebcbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDelay: 3
-  speed: 2
+  pushDelay: 1
+  speed: 3.5
 --- !u!23 &1612956662
 Renderer:
   m_ObjectHideFlags: 0
@@ -5291,7 +5315,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1799347348}
   m_LocalRotation: {x: .600037634, y: 0, z: 0, w: .799971819}
-  m_LocalPosition: {x: .458334923, y: 13.5800276, z: -6.42001486}
+  m_LocalPosition: {x: -2.01526332, y: 13.5800276, z: -6.42001486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

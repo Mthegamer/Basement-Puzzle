@@ -4,7 +4,7 @@ using System.Collections;
 public class WinPositionBehaviorScript : MonoBehaviour {
 
 	private bool hasBlock;   //Does this position has a block on top of it.
-	private float triggerDelay = 2f;
+	private float triggerDelay = 1f;
 	private float triggerCount = 0f;
 
 	//Used for initialization
