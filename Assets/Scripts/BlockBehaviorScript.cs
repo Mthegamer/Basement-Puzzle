@@ -10,6 +10,7 @@ using System.Collections;
  * @author Martin Rohwedder
  * @version 1.0
  */
+[RequireComponent(typeof(AudioSource))]
 public class BlockBehaviorScript : MonoBehaviour {
 
 	public float pushDelay = 1f;   //The delay to wait before you can push again
@@ -78,6 +79,7 @@ public class BlockBehaviorScript : MonoBehaviour {
 			//Push the Block in the calculated direction, if player presses the Push key and the block can slide and is not moving
 			if (Input.GetAxis("Push") > 0 && CanSlide(direction) && !moving)
 			{
+				audio.Play();
 				moving = true;
 				ChangePosition(transform.position + direction * 1f);
 				numberOfSlides++;
